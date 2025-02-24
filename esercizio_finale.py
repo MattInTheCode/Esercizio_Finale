@@ -55,12 +55,16 @@ patologia_piu_frequente = patologia_counts.idxmax()
 patologia_meno_frequente = patologia_counts.idxmin()
 
 print("\nPatologia più frequente:", patologia_piu_frequente)
+
+
+print("Patologia meno frequente:", patologia_meno_frequente)
+
 print("Patologia meno frequente:", patologia_meno_frequente)
 
 
 
 # Grafico a linee dei visitatori giornalieri con media mobile a 7 giorni
-'''plt.figure(figsize=(12, 6))
+plt.figure(figsize=(12, 6))
 plt.plot(df.index, df["Visitatori"], label="Visitatori giornalieri")
 plt.plot(df.index, df["Visitatori"].rolling(7).mean(), color="red", label="Media mobile 7 giorni")
 plt.title("Visitatori giornalieri in ospedale")
@@ -69,8 +73,7 @@ plt.ylabel("Numero di visitatori")
 plt.legend()
 plt.tight_layout()
 plt.show()
-plt.show(block=True)
-'''
+
 #Grafico della media mensile dei visitatori
 
 df_mensile_media = df.resample('M').mean()
@@ -82,12 +85,11 @@ plt.ylabel("Numero medio di visitatori")
 plt.grid(True)
 plt.tight_layout()
 plt.show()
-plt.show(block=True)
-'''
+
 #Grafico a torta delle  3 patologie
 plt.figure(figsize=(8, 8))
 plt.pie(patologia_counts, labels=patologia_counts.index, autopct='%1.1f%%', startangle=140)
 plt.title("Distribuzione delle patologie")
 plt.tight_layout()
 plt.show()
-plt.show(block=True)
+
